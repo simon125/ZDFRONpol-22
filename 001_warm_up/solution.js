@@ -29,6 +29,8 @@
  *  hint1: stwórz zmienną suma i użyj pętli do dodania wszystkich liczb z tablicy
  *  hint2: stwórz kolejną zmienną i przypisz wynik obliczenia
  *
+ * suma wszystkich liczb podzielona przez ilosć tych liczb
+ *
  */
 
 const numbers = [4, 2, 5, 8, 9, 1, 0];

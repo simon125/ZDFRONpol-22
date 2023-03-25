@@ -43,7 +43,18 @@ const phrases = [
   "assumenda aspernatur.",
 ];
 
-console.log({ joinedPhrases1, joinedPhrases2, joinedPhrases3 });
+// 1)
+const phrasesJoined = phrases.join(" ");
+
+// 2)
+
+let joinedPhrases1 = "";
+
+phrases.forEach((phrase) => {
+  joinedPhrases1 = joinedPhrases1 + `${phrase}`;
+});
+
+console.log(joinedPhrases1);
 
 /**
  * HTML w JS? o co w tym wszystkim chodzi?
@@ -58,9 +69,15 @@ console.log({ joinedPhrases1, joinedPhrases2, joinedPhrases3 });
 
 // div jako zmienna???
 
-// const div = ??
+const div = "<div>" + "<div></div>" + "</div>";
 
-// const span = ??
+const div1 = `
+  <div>
+    <div></div>
+  </div>
+`;
+
+const span = `<span class="moj-super-span" id="spanId" name="span"></span>`;
 
 const labelka = "To jest labelka zapisana w JSie";
 
@@ -73,7 +90,11 @@ const input = `
   </label>
   `;
 
-// const form = ??'
+const form = `
+<form>
+  <input type="checkbox" checked/>
+</form>
+`;
 
 /**
  *
@@ -94,6 +115,48 @@ const input = `
  *
  */
 
+const htmlList1 = `
+<h1>Todo List:</h1>
+  <ul>
+    <li>wake up</li>
+    <li>take shower</li>
+    <li>have breakfast</li>
+  </ul>
+`;
+
+const list = `
+TO DO LIST
+  <ul> 
+    <li>Task 1</li>
+    <li>Task 2</li>
+    <li>Task 3</li>
+  </ul>
+`;
+console.log(list);
+
+const htmlList = `
+  <ul>
+    <li>Eat</li>
+    <li>Sleep</li>
+    <li>Code</li>
+    <li>Repeat</li>
+  </ul>`;
+
+console.log(htmlList);
+
+const templateString = `
+
+  asdfasdf
+  adsfasdf
+
+
+  asdfadf
+
+  ${htmlList}
+
+  adfasdf
+`;
+
 /**
  * Zadanie
  *
@@ -113,6 +176,34 @@ const input = `
  * |---------------------------------------|
  *
  */
+
+const htmlTable = `
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Last Name</th>
+      <th>Is Adult?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="bold-text">Jane</td>
+      <td>Doe</td> 
+      <td>
+        <input type="checkbox" checked disabled>
+      </td>
+    </tr>
+    <tr>
+      <td class="bold-text">Jack</td>
+      <td>Jacke</td> 
+      <td>
+        <input type="checkbox" disabled>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
 
 /**
  * Zadanie
@@ -154,7 +245,32 @@ const users = [
   { name: "Jane", lastName: "Doe", age: 20 },
   { name: "Jack", lastName: "Jake", age: 15 },
   { name: "John", lastName: "Doe", age: 30 },
+  { name: "Jerry", lastName: "Smith", age: 50 },
 ];
+
+let htmlTable2 = "";
+
+users.forEach((user, index) => {
+  htmlTable2 =
+    htmlTable2 +
+    `
+    <tr style="border: 1px solid black">
+      <td>${user.name}</td>
+      <td>${user.lastName}</td>
+      <td>${user.age}</td>
+    </tr>
+  `;
+});
+
+htmlTable2 = `
+<table>
+  <tbody>
+    ${htmlTable2}
+  </tbody>
+</table>
+`;
+
+console.log(htmlTable2);
 
 /**
  * Zadanie ⭐
@@ -198,3 +314,57 @@ const products = [
     image: "../server/assets/products/3.jpg",
   },
 ];
+
+// podejscie 1 - poprawne
+// let productList = "";
+
+// products.forEach((product) => {
+//   productList =
+//     productList +
+//     `<div>
+//   <h2>${product.title}</h2>
+//   <p>${product.price}</p>
+//   <p>${product.description}</p>
+//     <img src="${product.image}"  height="100"/>
+//   </div>`;
+// });
+
+// document.write(productList);
+
+// podejście 2 ambitniejsze ze stylami
+const styleH2 = "font-weight: 200";
+const divStyle = "border: 1px solid black; border-radius: 5px";
+
+let productList = "";
+
+products.forEach((product, index) => {
+  productList =
+    productList +
+    `
+      <div class="${divStyle}">
+        <h2 class="${styleH2}">${product.title}</h2>
+        <p>${product.price}</p>
+        <p>${product.description}</p>
+        <img src=${product.image} height="100">
+      </div>
+  `;
+});
+
+// document.write(productList);
+
+// console.log();
+
+// console.table(products);
+
+// /**
+//  * for
+//  * forEach
+//  *
+//  * map
+//  * filter
+//  * reduce
+//  */
+
+// const temp = products.map();
+
+// const temp1 = products.filter();

@@ -29,9 +29,28 @@
  *  hint1: stwórz zmienną suma i użyj pętli do dodania wszystkich liczb z tablicy
  *  hint2: stwórz kolejną zmienną i przypisz wynik obliczenia
  *
+ *
+ * suma wszystkich liczb podzielona przez ilosć tych liczb
+ *
  */
 
 const numbers = [4, 2, 5, 8, 9, 1, 0];
+
+let sum = 0;
+
+numbers.forEach((num) => {
+  sum += num;
+});
+
+const mathMean = sum / numbers.length;
+
+console.log(`średnia arytmetyczna: ${mathMean}`);
+
+let suma = 0;
+for (let i = 0; i < numbers.length; i++) {
+  suma = suma + numbers[i];
+}
+let mean = suma / numbers.length;
 
 /**
  * Zadanie
@@ -41,6 +60,18 @@ const numbers = [4, 2, 5, 8, 9, 1, 0];
  * hint1: proponuje użyć metody dostępnej na tablicy - filter, ale możesz wykorzystać zwykłą pętle for
  * hint2: skonstruuj warunek (if) sprawdzający czy dana liczba jest większa niż 5
  */
+
+const biggerThanFive1 = numbers.filter((number) => number > 5);
+
+const biggerThanFive2 = numbers.filter((number) => {
+  if (number > 5) {
+    return true;
+  } else {
+    return false;
+  }
+});
+
+console.log(biggerThanFive2);
 
 /**
  * Zadanie ⭐
@@ -62,10 +93,23 @@ const numbers1 = [
   -5,
   20,
   "22",
-  "cześć",
+  "cześć", // not a number
   { name: "John" },
   [1, 2, 3],
 ];
+
+let sum2 = 0;
+
+numbers1.forEach((element) => {
+  if (
+    typeof element === "number" ||
+    (typeof element === "string" && !isNaN(element))
+  ) {
+    sum2 += Number(element);
+  }
+});
+
+console.log(`Suma: ${sum2}`);
 
 /**
  * Zadanie
@@ -110,6 +154,24 @@ const users = [
   { name: "Jack", lastName: "Jackson", age: 25 },
   { name: "Jerry", lastName: "Jazz", age: 15 },
 ];
+// porejscie 1 - mutowanie danych
+users.forEach((user) => {
+  if (user.age >= 18) {
+    user.isAdult = true;
+  } else {
+    user.isAdult = false;
+  }
+});
+// podejście 2 - tworzenie nowych danych
+const usersWithIsAdult = users.map((user) => {
+  const newUser = { ...user, isAdult: user.age > 18 };
+
+  return newUser;
+});
+
+console.table(usersWithIsAdult);
+
+// console.table(users);
 
 /**
  *
@@ -136,3 +198,17 @@ const users = [
  * jeżeli nie pomiń go.
  *
  */
+
+const usersAdult = usersWithIsAdult.filter((user) => {
+  if (user.isAdult === true) {
+    return true;
+  } else {
+    return false;
+  }
+});
+
+// console.log(usersAdult);
+
+const adultUsers = usersWithIsAdult.filter((user) => user.isAdult);
+
+console.log(adultUsers);

@@ -17,6 +17,12 @@
  *
  */
 
+const div1 = `<div></div>`;
+
+const div = document.createElement("div");
+
+div.classList.add("jakas-testowa-klasa");
+
 /**
  * Osadzanie nowostworzonego elementu w elemncie body
  */
@@ -26,15 +32,34 @@
 
 // 2) document.body... ✅
 
+// document.body.appendChild(div);
+
 /**
  * Pobieranie elementów z dokumentu HTML
  */
 
 // 1) metoda querySelector
 
+const h1_1 = document.querySelector("h1");
+
+const h1_2 = document.querySelector("#heading");
+
+console.log(h1_1);
+console.log(h1_2);
+
 // 2) metoda getElementById
 
+const h1_3 = document.getElementById("heading");
+
 // 3) metoda getElementsByClassName
+
+const superDivs = document.getElementsByClassName("super-div");
+
+console.log(superDivs);
+
+const superDivsArray = Array.from(superDivs);
+
+console.log(superDivsArray);
 
 /**
  * Zadanie
@@ -44,27 +69,117 @@
  * wynik przypisz do zmiennej po czym wykonsoluj zmienną z pobranym element (console.log)
  */
 
+const blogPostSection = document.getElementById("blog-post");
+
 /**
  * manipulowanie classami - lista klas jest dostępna pod polem classList
  * dodatkowo można manipulować tymi klasami przy pomocy szerokiej gamy metod dostępnej też pod tym polem
  */
+
+console.log(blogPostSection.classList);
+
+blogPostSection.classList.remove("text-bold");
+
+const result = blogPostSection.classList.contains("text-bold");
+
+if (result === true) {
+  console.log("blog post jest napisany pogrubioną czcionką");
+} else {
+  console.log("blog post jest napisany normalną czcionką");
+}
 
 /**
  * bezpośrednie stylowanie elementu
  * element.style = '';
  */
 
+blogPostSection.style.color = "#fff";
+blogPostSection.style.fontSize = "30px";
+
+const h2 = document.createElement("h2");
+
+const span = `<span>Testowa tresc</span>`;
+
+h2.innerHTML = span;
+
 /**
  * Wstawianie elementu / osadzanie w dowolnym miejscu w dokumencie
  */
+
+// blogPostSection.appendChild(h2);
 
 /**
  * Ustawianie/setowanie atrubutów na przykładzie checkboxa
  */
 
+const checkbox = document.querySelector("#checkbox");
+
+console.log(checkbox);
+
+checkbox.setAttribute("checked", "");
+
 /**
  * Usuwanie elementu - metoda remove dostępna na elemencie HTML/Nodzie
  */
+
+checkbox.remove();
+
+/**
+ * Stwórz sekcje za pomocą metody createElement który będzie wrapperem na wpis na blogu
+ *
+ * niech wpis na blogu zawiera nagłówek h2 oraz 2 paragafy z tekstem
+ *
+ * nagłówek h2 i paragrafy niech będą stworzone jako string (html in js)
+ *
+ * do nowostowrzonego obiektu seckji przypisz za pomocą pola innerHTML elmentu h2 i p
+ *
+ * umieść sekcjie w istniejącej sekcji blog-post
+ */
+
+// podejście 1
+const sectionNew = document.getElementById("blog-post");
+
+const section = document.createElement("section");
+
+const post = `
+    <h2>Nagłówek</h2>
+    <p>TEKST WPISU NA BLOGA</p>
+    <p>TEKST WPISU NA BLOGA druga część</p>
+`;
+
+// section.innerHTML = post;
+
+// sectionNew.appendChild(section);
+
+// podejście 2
+const divBlog = document.createElement("div");
+
+const heading2 = `<h2>Lorem ipsun</h2>`;
+
+const p = `<p>Lorem lorem</p>, <p>Lorem ipsum2</p>`;
+
+// divBlog.innerHTML = `${heading2} ${p}`;
+
+// sectionNew.appendChild(divBlog);
+
+/**
+ * tworzenie elementów HTMLowych w JSie
+ */
+
+// 1) za pomocą stringa
+const przykladowyDiv = '<div class="super-div">Jakis tekst</div>';
+
+// 2) za pomocą metody dostępnej na obiekcie document
+const przykladowyDiv1 = document.createElement("div");
+
+// przykladowyDiv1.innerHTML = '<div class="super-div">Jakis tekst</div>';
+
+// pobranyElement to zmienna która przchowuje sekcje HTMLową jako obiekt JSowy
+// <section> innerHTML/innerText/appendChild() </section>
+const pobranyElement = document.getElementById("blog-post");
+
+// pobranyElement.innerHTML = przykladowyDiv;
+// pobranyElement.appendChild(przykladowyDiv1);
 
 /**
  * Zadanie
@@ -82,6 +197,28 @@
  *
  */
 
+// const newDiv = document.createElement("div");
+// newDiv.style.width = "100px";
+// newDiv.style.height = "100px";
+// newDiv.style.color = "#ff6";
+// newDiv.style.background = "#ff6";
+
+// document.body.appendChild(newDiv);
+// const newDiv2 = document.createElement("div");
+// newDiv2.style.width = "50%";
+// newDiv2.style.height = "50%";
+// newDiv2.style.backgroundColor = "red";
+// newDiv.appendChild(newDiv2);
+
+// setTimeout(() => {
+//   newDiv.style.width = "200px";
+//   newDiv.style.height = "200px";
+// }, 3000);
+
+// setTimeout(() => {
+//   newDiv.remove();
+// }, 8000);
+
 /**
  * Zadanie
  *
@@ -94,7 +231,76 @@
  *
  * experymentuj a w razie coś pytaj😀
  *
+ * 1a) stworzenie nowego elementu
+ * 1b) pobranie istniejacego elementu
+ *
+ * 2) przekopiowany kod z folderu 002_html_in_js a dokładniej zmienną która przchowuje
+ * strukturę HTML przypisujecie do pole .innerHTML pobranego lub nowostworzonego elementu
+ *
  */
+
+const users = [
+  { name: "Jane", lastName: "Doe", age: 20 },
+  { name: "Jack", lastName: "Jake", age: 15 },
+  { name: "John", lastName: "Doe", age: 30 },
+  { name: "Jerry", lastName: "Smith", age: 50 },
+];
+
+let htmlTable2 = `
+
+`;
+
+users.forEach((user, index) => {
+  htmlTable2 =
+    htmlTable2 +
+    `
+      <tr style="border: 1px solid black">
+        <td>${user.name}</td>
+        <td>${user.lastName}</td>
+        <td>${user.age}</td>
+      </tr>
+    `;
+});
+
+htmlTable2 = `
+  <table>
+    <tbody>
+      ${htmlTable2}
+    </tbody>
+  </table>
+  `;
+
+const usersTableContainer = document.getElementById("users-table-container");
+
+usersTableContainer.innerHTML = htmlTable2;
+
+/*
+    Zadanie
+
+    umieść zmienną htmlList która przechowuje liste HTMLową  w dokumencie index.html
+
+    dodatkowo spopuluj list itemy zmiennymi taskN
+*/
+
+const task1 = "Eat";
+const task2 = "Sleep";
+const task3 = "Code";
+const task4 = "Repeat";
+
+const htmlList = `
+    <ul>
+        <li>${task1}</li>
+        <li>${task2}</li>
+        <li>${task3}</li>
+        <li>${task4}</li>
+    </ul>
+`;
+
+const listContainer = document.getElementById("list-container");
+
+console.log(listContainer);
+
+listContainer.innerHTML = htmlList;
 
 /**
  * Zadanie ⭐⭐
