@@ -13,119 +13,111 @@
         padding: 30px;
       }
 
-      table {
-        background-color: white;
+      article {
+        margin-top: 20px;
+        margin-bottom: 40px;
       }
     </style>
     <title>Events</title>
   </head>
   <body>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Last Name</th>
-          <th>Age</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="usersStaticTable">
-        <tr>
-          <td>John</td>
-          <td>Doe</td>
-          <td>33</td>
-          <td>
-            <button id="deleteButton" class="deleteButton" role="button">
-              &times;
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>Jane</td>
-          <td>Doe</td>
-          <td>23</td>
-          <td><button class="deleteButton" role="button">&times;</button></td>
-        </tr>
-        <tr>
-          <td>Jack</td>
-          <td>Doe</td>
-          <td>13</td>
-          <td><button class="deleteButton" role="button">&times;</button></td>
-        </tr>
-        <tr>
-          <td>Jerry</td>
-          <td>Doe</td>
-          <td>63</td>
-          <td><button class="deleteButton" role="button">&times;</button></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div id="colorSwitch" style="display: flex; gap: 10px">
-      <button>Green</button>
-      <button>Red</button>
-      <button>Blue</button><button>Yellow</button>
-    </div>
-
-    <br /><br />
-    <hr />
-    <h2>Dynamic Users</h2>
-
-    <div>
-      <form id="dynamicUserForm">
-        <label for="name">
-          Name
-          <input type="text" id="name" name="name" />
-        </label>
-        <label for="lastname">
-          Last name
-          <input type="text" id="lastname" name="lastname" />
-        </label>
-        <label for="age">
-          Age
-          <input type="text" id="age" name="age" />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-
-    <button style="width: 400px" id="openModal">Dodaj użytkownika</button>
-
-    <dialog id="modalForm" open>
+    <main class="container-fluid">
       <article>
-        <div>
-          <form id="dynamicUserFormModal">
-            <label for="userName">
-              Name
-              <input type="text" id="userName" name="userName" />
-            </label>
-            <label for="userLastname">
-              Last name
-              <input type="text" id="userLastname" name="userLastname" />
-            </label>
-            <label for="userAge">
-              Age
-              <input type="text" id="userAge" name="userAge" />
-            </label>
-            <button type="submit">Submit</button>
-            <button type="button" id="cancelButton">Cancel</button>
-          </form>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Last Name</th>
+              <th>Age</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="usersStaticTable">
+            <tr>
+              <td>John</td>
+              <td>Doe</td>
+              <td>33</td>
+              <td>
+                <button id="deleteButton" class="deleteButton" role="button">
+                  &times;
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Jane</td>
+              <td>Doe</td>
+              <td>23</td>
+              <td>
+                <button class="deleteButton" role="button">&times;</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Jack</td>
+              <td>Doe</td>
+              <td>13</td>
+              <td>
+                <button class="deleteButton" role="button">&times;</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Jerry</td>
+              <td>Doe</td>
+              <td>63</td>
+              <td>
+                <button class="deleteButton" role="button">&times;</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+      <article>
+        <div id="colorSwitch" style="display: flex; gap: 10px">
+          <button>Green</button>
+          <button>Red</button>
+          <button>Blue</button><button>Yellow</button>
         </div>
       </article>
-    </dialog>
 
-    <hr />
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Last Name</th>
-          <th>Age</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="dynamic-users"></tbody>
-    </table>
+      <article>
+        <h2>Other events</h2>
+
+        <input type="text" placeholder="Testowy input textowy" />
+
+        <p><b>To jest wartość z inputa: </b> <span id="output"> </span></p>
+
+        <input type="checkbox" name="" id="" style="margin-bottom: 20px" />
+
+        <select name="" id="">
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JS">JS</option>
+        </select>
+      </article>
+
+      <article>
+        <h2>Dynamic Users</h2>
+
+        <div>
+          <label for="name">
+            Name
+            <input type="text" id="name" name="name" />
+          </label>
+          <button>Submit</button>
+        </div>
+      </article>
+
+      <article>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody id="dynamic-users"></tbody>
+        </table>
+      </article>
+    </main>
+
     <script src="./app.js"></script>
   </body>
 </html>

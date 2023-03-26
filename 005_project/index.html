@@ -1,0 +1,80 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css"
+    />
+    <style>
+      body {
+        background-color: #eee;
+        padding: 30px;
+      }
+
+      article {
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
+    </style>
+    <title>005_project</title>
+  </head>
+  <body>
+    <main class="container-fluid">
+      <h2>Dynamic Users & Modal</h2>
+
+      <button style="width: 400px; margin-bottom: 30px" id="openModal">
+        + Dodaj użytkownika
+      </button>
+
+      <dialog id="modalForm">
+        <article>
+          <div>
+            <form id="dynamicUserFormModal">
+              <label for="name">
+                Name
+                <input type="text" id="name" name="userName" />
+              </label>
+              <label for="lastName">
+                Last name
+                <input type="text" id="lastName" name="lastName" />
+              </label>
+              <label for="age">
+                Age
+                <input type="text" id="age" name="age" />
+              </label>
+              <button type="submit">Submit</button>
+              <button type="button" id="cancelButton">Cancel</button>
+            </form>
+          </div>
+        </article>
+      </dialog>
+
+      <article style="display: flex; gap: 20px">
+        <input type="text" placeholder="Search" />
+        <select name="" id="">
+          <option value="All" selected>Wszyscy</option>
+          <option value="underage">Nieletni</option>
+          <option value="adult">Pełnoletni</option>
+        </select>
+        <button>Zastosuj filtry</button>
+        <button>Zresetuj filtry</button>
+      </article>
+
+      <article>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Last Name</th>
+              <th>Age</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="dynamic-users"></tbody>
+        </table>
+      </article>
+    </main>
+  </body>
+</html>

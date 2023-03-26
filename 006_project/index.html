@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css"
+    />
+    <style>
+      body {
+        background-color: #eee;
+        padding: 30px;
+      }
+
+      article {
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
+
+      .calculator {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+      }
+
+      .calculator input,
+      .calculator select,
+      .calculator button {
+        width: 17%;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="container-fluid">
+      <article>
+        <h1>Kalkulator</h1>
+        <div class="calculator">
+          <input type="text" placeholder="Enter some number..." />
+          <select>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">&times;</option>
+            <option value="/">/</option>
+          </select>
+          <input type="text" placeholder="Enter some number..." />
+          <button>=</button>
+          <input type="text" readonly />
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
